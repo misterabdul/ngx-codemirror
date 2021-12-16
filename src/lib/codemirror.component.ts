@@ -72,6 +72,8 @@ export class CodemirrorComponent
   }
   /* preserve previous scroll position after updating value */
   @Input() preserveScrollPosition = false;
+  /* emit editor instance */
+  @Output() editor = new EventEmitter<EditorFromTextArea>();
   /* called when the text cursor is moved */
   @Output() cursorActivity = new EventEmitter<Editor>();
   /* called when the editor is focused or loses focus */
@@ -115,6 +117,7 @@ export class CodemirrorComponent
         this.ref.nativeElement,
         this._options,
       ) as EditorFromTextArea;
+      this.editor.emit(this.codeMirror);
       this.codeMirror.on('cursorActivity', cm => this._ngZone.run(() => this.cursorActive(cm)));
       this.codeMirror.on('scroll', this.scrollChanged.bind(this));
       this.codeMirror.on('blur', () => this._ngZone.run(() => this.focusChanged(false)));
