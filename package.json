@@ -1,8 +1,8 @@
 {
-  "name": "@ctrl/ngx-codemirror",
+  "name": "@misterabdul/ngx-codemirror",
   "version": "0.0.0-placeholder",
   "license": "MIT",
-  "repository": "scttcper/ngx-codemirror",
+  "repository": "misterabdul/ngx-codemirror",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
